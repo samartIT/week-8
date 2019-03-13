@@ -5,11 +5,11 @@ using UnityEngine;
 public class AddForceDemo : MonoBehaviour
 {
     // Start is called before the first frame update
-	public Vector3 pushDirecion = new Vector3(0,0,1);
+	public Vector3 pushDirection = new Vector3(0,0,1);
 		public float pushForce = 500;
-		public void OnMouseOver()
+		private void OnMouseOver()
 		{
-			GetComponent<Rigidbody>().AddForce(pushDirecion * pushForce);
+			GetComponent<Rigidbody>().AddForce(pushDirection * pushForce);
 		}
         
     void Start()
