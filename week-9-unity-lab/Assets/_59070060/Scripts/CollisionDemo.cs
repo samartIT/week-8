@@ -9,7 +9,9 @@ public class CollisionDemo : MonoBehaviour
         print("Enter: " + collision.collider.name);
         if (collision.collider.name != "Cube3")
             Destroy(collision.collider.gameObject);
+
     }
+
     // Start is called before the first frame update
     void Start()
     {
