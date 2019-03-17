@@ -6,7 +6,7 @@ public class RaycastDemo : MonoBehaviour
 {
     float rotAroundX, rotAroundY;
 
-    private void Update()
+    void Update()
     {
         rotAroundY = Input.GetAxis("Mouse X");
         rotAroundX = Input.GetAxis("Mouse Y");
