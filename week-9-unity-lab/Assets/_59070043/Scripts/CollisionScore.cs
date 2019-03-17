@@ -36,6 +36,10 @@ public class CollisionScore : MonoBehaviour
             Destroy(collision.collider.gameObject);
             ScoreUpdate.currentscore += 1;
         }
+        if (collision.collider.name == "Wall1" || collision.collider.name == "Wall2" || collision.collider.name == "Wall3" || collision.collider.name == "Wall4")
+        {
+            ScoreUpdate.currentscore -= 1;
+        }
         if (Timer.timeLeft >= 0 && Timer.timeLeft  <= 1)
         {
             print("Enter: " + collision.collider.name);
