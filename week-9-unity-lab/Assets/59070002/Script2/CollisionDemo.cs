@@ -10,12 +10,5 @@ public class CollisionDemo : MonoBehaviour
         if (collision.collider.name != "Cube3")
             Destroy(collision.collider.gameObject);
     }
-    private void OnCollisionStay(Collider other)
-    {
-    
-    }
-    private void OnCollisionExit(Collider other)
-    {
 
-    }
 }
