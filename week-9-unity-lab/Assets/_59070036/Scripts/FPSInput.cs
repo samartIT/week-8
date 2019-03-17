@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FPSInput : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class FPSInput : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
-        SetCountText();
+        countText.text = "Score : " + count.ToString();
         winText.text = "";
     }
 
@@ -34,7 +35,7 @@ public class FPSInput : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count = count + 1;
-            SetCountText();
+            countText.text = "Score : " + count.ToString();
         }
     }
     void SetCountText()
