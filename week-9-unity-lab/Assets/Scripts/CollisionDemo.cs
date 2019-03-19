@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionDemo : MonoBehaviour
+public class CollisionDemo.cs : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
-    {
-        print("Enter: " + collision.collider.name);
-        if (collision.collider.name != "Cube3")
-            Destroy(collision.collider.gameObject);
-    }
+    public void OnCollisionEnter(Collision collision)
+{
+    print("Enter: " + collision.collider.name);
+
+}
+
+    // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
