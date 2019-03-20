@@ -11,10 +11,18 @@ public class Relativemovement : MonoBehaviour
     public float rotationSpeed = 15.0f;
     private CharacterController _charCtrl;
 
+    //Jump Part
+    public float jumpSpeed = 15.0f;
+    public float gravity = -9.8f;
+    public float terminalVelocity = -10.0f;
+    public float minFall = -1.5f;
+    private float _vertSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
         _charCtrl = GetComponent<CharacterController> ();
+        _vertSpeed = minFall;
     }
 
     // Update is called once per frame
@@ -43,6 +51,31 @@ public class Relativemovement : MonoBehaviour
 
         }
         movement *= Time.deltaTime;
+        
+
+        //jump begin
+        print(_charCtrl.isGrounded);
+        if(_charCtrl.isGrounded)
+        {
+            if(Input.GetButtonDown("Jump"))
+            {
+                _vertSpeed = jumpSpeed;
+            }
+            else
+            {
+                _vertSpeed = minFall;
+            }
+            
+        }
+        else
+        {
+            _vertSpeed += gravity * 5 * Time.deltaTime;
+            if(_vertSpeed < terminalVelocity)
+            {
+                _vertSpeed = terminalVelocity;
+            }
+        }
+        movement.y = _vertSpeed;
         _charCtrl.Move(movement);
     }
 }
