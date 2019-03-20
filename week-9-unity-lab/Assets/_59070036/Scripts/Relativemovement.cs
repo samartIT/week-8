@@ -27,7 +27,7 @@ public class Relativemovement : MonoBehaviour
         if(horizontalInput != 0 || verticalInput != 0)
         {
             movement.x = horizontalInput * moveSpeed;
-            movement.y = verticalInput * moveSpeed;
+            movement.z = verticalInput * moveSpeed;
 
             movement = Vector3.ClampMagnitude(movement, moveSpeed);
 
@@ -38,11 +38,6 @@ public class Relativemovement : MonoBehaviour
 
             target.rotation = tmp;
             //transform.rotation = Quaternion.LookRotation(movement);
-            Quaternion direction = Quaternion.LookRotation(movement);
-            transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotationSpeed * Time.deltaTime);
-
-            target.rotation = tmp;
-            //transform.rotation = Quaternion.LookRotation(movement);\
             Quaternion direction = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotationSpeed * Time.deltaTime);
 
