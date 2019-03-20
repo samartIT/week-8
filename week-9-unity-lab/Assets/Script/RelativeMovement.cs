@@ -9,6 +9,9 @@ public class RelativeMovement : MonoBehaviour
     public float moveSpeed = 5.0f;
     private CharacterController _charCtrl;
 
+    //Animation
+    private Animator _animator;
+
     public float rotationSpeed = 15.0f;
 
     //jump
@@ -18,11 +21,14 @@ public class RelativeMovement : MonoBehaviour
     public float minFall = -1.5f;
     private float _vertSpeed;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {
         _charCtrl = GetComponent<CharacterController> ();
         _vertSpeed = minFall;
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,8 +43,10 @@ public class RelativeMovement : MonoBehaviour
             movement.z = verticalInput * moveSpeed;
 
             movement = Vector3.ClampMagnitude(movement, moveSpeed);
+
             Quaternion tmp = target.rotation;
             target.eulerAngles = new Vector3(0, target.eulerAngles.y, 0);
+
             movement = target.TransformDirection(movement);
 
             target.rotation = tmp;
@@ -48,6 +56,22 @@ public class RelativeMovement : MonoBehaviour
         }
 
         //JUMP START
+        _animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        if (_charCtrl.isGrounded)
+        {
+            if (_charCtrl.isGrounded) {
+                if (Input.GetButtonDown("Jump"))
+                {
+                    _vertSpeed = jumpSpeed;
+                    _animator.SetBool("Jumping", true);
+                }
+                else {
+                    _vertSpeed = minFall;
+                    _animator.SetBool("Jumping", false);
+                }
+            }else}
+
         print(_charCtrl.isGrounded);
         if (_charCtrl.isGrounded)
         {
