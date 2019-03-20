@@ -17,7 +17,7 @@ public class RaycastDemo : MonoBehaviour
     {
         rotAroundX = Input.GetAxis("Mouse X");
         rotAroundY = Input.GetAxis("Mouse Y");
-        transform.Rotate(rotAroundX, -rotAroundY, 0);
+        transform.Rotate(-rotAroundY, rotAroundX, 0);
         DestroyObject();
     }
     void DestroyObject()
