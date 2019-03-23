@@ -8,6 +8,7 @@ public class RelativeMovement : MonoBehaviour
     public float moveSpeed = 5.0f;
     public float rotationSpeed = 15.0f;
     private CharacterController _charCtrl;
+    private Animator _animator;
     //jump
     public float jumpSpeed = 15.0f;
     public float gravity = -9.8f;
@@ -19,6 +20,7 @@ public class RelativeMovement : MonoBehaviour
     {
         _charCtrl = GetComponent<CharacterController>();
         _vertSpeed = minFall;
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -44,15 +46,18 @@ public class RelativeMovement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotationSpeed * Time.deltaTime);
         }
         print(_charCtrl.isGrounded);
+        _animator.SetFloat("Speed", movement.sqrMagnitude);
         if (_charCtrl.isGrounded)
         {
             if (Input.GetButtonDown("Jump"))
             {
                 _vertSpeed = jumpSpeed;
+                _animator.SetBool("Jumping", true);
             }
             else
             {
                 _vertSpeed = minFall;
+                _animator.SetBool("Jumping", false);
             }
         }
         else
