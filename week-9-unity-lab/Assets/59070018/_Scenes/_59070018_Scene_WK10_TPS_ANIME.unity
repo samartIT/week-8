@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -1588,6 +1588,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100038, guid: e5b2496dcada5de41b7e9f8de2671846, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400038, guid: e5b2496dcada5de41b7e9f8de2671846, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1619,6 +1623,14 @@ PrefabInstance:
     - target: {fileID: 400038, guid: e5b2496dcada5de41b7e9f8de2671846, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: e5b2496dcada5de41b7e9f8de2671846, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 91221a09e445b1949adb945c5cfb023a, type: 2}
+    - target: {fileID: 9500000, guid: e5b2496dcada5de41b7e9f8de2671846, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5b2496dcada5de41b7e9f8de2671846, type: 3}
