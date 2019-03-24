@@ -7,6 +7,7 @@ public class RelativeMovement : MonoBehaviour
     [SerializeField] private Transform target;
     public float moveSpeed = 5.0f;
     private CharacterController _charCtrl;
+    private Animator _animator;
     public float rotationSpeed = 15.0f;
 
     //JUNP PART
@@ -22,6 +23,8 @@ public class RelativeMovement : MonoBehaviour
         _charCtrl = GetComponent<CharacterController>();
 
         _vertSpeed = minFall;
+
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -45,20 +48,24 @@ public class RelativeMovement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotationSpeed * Time.deltaTime);
         }
 
+        _animator.SetFloat("Speed", movement.sqrMagnitude);
+
         print(_charCtrl.isGrounded);
         if (_charCtrl.isGrounded) {
             if (Input.GetButton("Jump"))
             {
                 _vertSpeed = jumpSpeed;
+                _animator.SetBool("Jumpig", true);
             }
             else
             {
                 _vertSpeed = minFall;
+                _animator.SetBool("Jumpig", false);
             }
         }
         else
         {
-            _vertSpeed += 5 * Time.deltaTime;
+            _vertSpeed += gravity *  5 * Time.deltaTime;
             if (_vertSpeed < terminalVelocity)
             {
                 _vertSpeed = terminalVelocity;
