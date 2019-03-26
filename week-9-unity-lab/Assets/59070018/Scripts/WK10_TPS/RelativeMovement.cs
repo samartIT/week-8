@@ -6,7 +6,6 @@ public class RelativeMovement : MonoBehaviour
 {
     [SerializeField] private Transform target;
     public float moveSpeed = 5.0f;
-    private CharacterController _charCtrl;
     public float rotationSpeed = 15.0f;
     private CharacterController _charCtrl;
     private Animator _animator;
@@ -50,7 +49,7 @@ public class RelativeMovement : MonoBehaviour
 
         }
 
-        _animator.setFloat("Speed", movement.sqrMagnitude);
+        _animator.SetFloat("Speed", movement.sqrMagnitude);
         //Jump begin
         print(_charCtrl.isGrounded);
         if (_charCtrl.isGrounded)
@@ -58,7 +57,7 @@ public class RelativeMovement : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 _vertSpeed = jumpSpeed;
-                _animator.Setbool("Jumping", true);
+                _animator.SetBool("Jumping", true);
             } else
             {
                 _vertSpeed = minFall;
